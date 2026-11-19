@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Moviment Physio · Physiotherapy clinic in Barcelona</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* Demo clinic site: calm teal and a peach accent; online appointment booking by treatment, therapist, day and time. */
+:root { --teal: #0f4c5c; --teal-2: #1f7a8c; --peach: #ff9f68; --bg: #f3f6f9; --card: #ffffff; --ink: #14232b; --muted: #5a6b75; --line: #dbe3ea;
+  --display: "Sora", system-ui, sans-serif; --body: "Manrope", system-ui, sans-serif; color-scheme: light; }
+* { box-sizing: border-box; } html, body { margin: 0; } body { background: var(--bg); color: var(--ink); font: 16px/1.6 var(--body); }
+a { color: inherit; } :focus-visible { outline: 2px solid var(--peach); outline-offset: 2px; }
+.demo-bar { background: #12161d; color: #eef1f4; font: 13px/1.4 system-ui, sans-serif; padding: 8px 16px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.demo-bar a { color: #3fae8c; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 36px); }
+nav { display: flex; justify-content: space-between; align-items: center; height: 68px; gap: 12px; }
+.logo { font: 700 21px var(--display); text-decoration: none; display: flex; align-items: center; gap: 8px; color: var(--teal); }
+.logo i { width: 26px; height: 26px; border-radius: 8px; background: linear-gradient(135deg, var(--teal-2), var(--teal)); position: relative; }
+.logo i::after { content: ""; position: absolute; inset: 7px 5px 7px 5px; border-top: 3px solid var(--peach); border-bottom: 3px solid #fff; border-radius: 2px; }
+nav ul { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; align-items: center; font-weight: 500; }
+nav ul a { text-decoration: none; }
+@media (max-width: 640px) { nav ul li:not(:last-child) { display: none; } }
+.btn { display: inline-block; font: 700 15px var(--body); padding: 12px 20px; border-radius: 12px; border: 0; background: var(--teal); color: #fff; text-decoration: none; cursor: pointer; }
+.btn.peach { background: var(--peach); color: #3b1a06; }
+.hero { padding: clamp(36px, 6vw, 72px) 0 40px; display: grid; grid-template-columns: 1.2fr .8fr; gap: 36px; align-items: center; }
+@media (max-width: 860px) { .hero { grid-template-columns: 1fr; } }
+.hero h1 { font: 700 clamp(40px, 6vw, 72px)/1.04 var(--display); margin: 0 0 16px; color: var(--teal); letter-spacing: -0.02em; text-wrap: balance; }
+.hero p { font-size: 18px; color: var(--muted); max-width: 48ch; margin: 0 0 24px; }
+.card { background: var(--card); border-radius: 18px; border: 1px solid var(--line); padding: 20px; }
+.next { display: grid; gap: 10px; }
+.next b { font: 700 18px var(--display); color: var(--teal); }
+.pill { display: inline-block; background: #e3f2f4; color: var(--teal); font-weight: 700; font-size: 13px; padding: 4px 10px; border-radius: 999px; margin: 0 6px 6px 0; }
+section { padding: 56px 0; }
+h2 { font: 700 clamp(30px, 4vw, 44px)/1.1 var(--display); margin: 0 0 12px; color: var(--teal); letter-spacing: -0.01em; }
+.lead { color: var(--muted); max-width: 60ch; margin: 0 0 26px; }
+.treat { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+@media (max-width: 900px) { .treat { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .treat { grid-template-columns: 1fr; } }
+.treat .card b { display: block; font: 700 18px var(--display); margin-bottom: 4px; }
+.treat .meta { font-size: 14px; color: var(--muted); margin-top: 8px; font-variant-numeric: tabular-nums; }
+.team { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+@media (max-width: 760px) { .team { grid-template-columns: 1fr; } }
+.member { display: grid; grid-template-columns: 56px 1fr; gap: 12px; align-items: center; }
+.av { width: 56px; height: 56px; border-radius: 16px; display: grid; place-items: center; font: 700 18px var(--display); color: #fff; }
+.member span { color: var(--muted); font-size: 14px; }
+.booking { background: var(--teal); color: #fff; border-radius: 24px; padding: clamp(22px, 4vw, 40px); }
+.booking h2 { color: #fff; }
+.booking .lead { color: rgba(255,255,255,.8); }
+.bgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+@media (max-width: 860px) { .bgrid { grid-template-columns: 1fr; } }
+.box { background: #fff; color: var(--ink); border-radius: 16px; padding: 18px; }
+.box h3 { margin: 0 0 10px; font: 700 15px var(--display); color: var(--teal); text-transform: uppercase; letter-spacing: .06em; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips button { font: 700 14px var(--body); padding: 9px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); cursor: pointer; font-variant-numeric: tabular-nums; }
+.chips button[aria-pressed="true"] { background: var(--teal); color: #fff; border-color: var(--teal); }
+.chips button:disabled { opacity: .35; cursor: not-allowed; }
+.days button { display: grid; text-align: center; line-height: 1.2; min-width: 58px; }
+.days small { font-weight: 500; font-size: 12px; }
+label { display: grid; gap: 6px; font-weight: 700; font-size: 14px; }
+input { font: 16px var(--body); padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; width: 100%; color: var(--ink); background: #fff; }
+.summary { background: #fff4ec; border: 1px solid #ffd2b5; border-radius: 12px; padding: 12px 14px; color: var(--ink); }
+.ok { background: #e3f4ec; border-radius: 12px; padding: 12px 14px; color: #155c3b; }
+.err { color: #b3261e; font-weight: 700; font-size: 14px; }
+footer { padding: 30px 0 40px; font-size: 14px; color: var(--muted); }
+footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+<div class="demo-bar"><span>Demo website by Backcourt. Moviment Physio is a fictional clinic.</span><a href="../../index.html#examples">← Back to Backcourt</a></div>
+<div class="wrap"><nav aria-label="Main"><a class="logo" href="#top"><i aria-hidden="true"></i>Moviment Physio</a>
+  <ul><li><a href="#treatments">Treatments</a></li><li><a href="#team">Team</a></li><li><a class="btn peach" href="#book" style="padding:8px 14px">Book online</a></li></ul></nav></div>
+
+<div class="wrap" id="top"><div class="hero">
+  <div><h1>Back to moving without pain.</h1>
+    <p>Physiotherapy, sports recovery and pilates in Barcelona. Book online in under a minute, with a reminder the day before.</p>
+    <a class="btn peach" href="#book">Book an appointment</a> <a class="btn" href="#treatments">See treatments</a></div>
+  <div class="card next"><b>Next free appointments</b><div id="next"></div><span style="font-size:14px;color:var(--muted)">Updated live from the clinic’s agenda.</span></div>
+</div></div>
+
+<section id="treatments" style="padding-top:20px"><div class="wrap">
+  <h2>Treatments</h2><p class="lead">Every first visit includes an assessment and a home exercise plan you can follow on your phone.</p>
+  <div class="treat" id="treat"></div>
+</div></section>
+
+<section id="team" style="padding-top:0"><div class="wrap">
+  <h2>The team</h2><p class="lead">Registered physiotherapists, each with their own speciality.</p>
+  <div class="team" id="teamlist"></div>
+</div></section>
+
+<section id="book" style="padding-top:0"><div class="wrap"><div class="booking">
+  <h2>Book online</h2><p class="lead">Choose a treatment, a physio and a time. You can change or cancel from the link in your confirmation email.</p>
+  <div class="bgrid">
+    <div class="box"><h3>1 · Treatment</h3><div class="chips" id="b-treat"></div></div>
+    <div class="box"><h3>2 · Physio</h3><div class="chips" id="b-phys"></div></div>
+    <div class="box"><h3>3 · Day</h3><div class="chips days" id="b-day"></div></div>
+    <div class="box"><h3>4 · Time</h3><div class="chips" id="b-time"></div></div>
+    <form class="box" id="b-form" novalidate style="grid-column:1/-1;display:grid;gap:12px">
+      <div class="summary" id="b-sum"></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><label for="b-name">Name<input id="b-name" autocomplete="name"></label><label for="b-phone">Mobile<input id="b-phone" type="tel" autocomplete="tel"></label></div>
+      <button class="btn peach" type="submit" style="justify-self:start">Confirm appointment</button>
+      <div id="b-msg" role="status"></div>
+    </form>
+  </div>
+</div></div></section>
+
+<footer><div class="wrap"><span>Moviment Physio · Barcelona</span><span>Website and booking system by Backcourt</span></div></footer>
+
+<script>
+(function () {
+  const T = [["First visit", "Assessment, treatment and a home plan.", 60, 55], ["Physiotherapy", "Follow-up treatment for pain or injury.", 45, 45], ["Sports recovery", "For runners, players and weekend athletes.", 45, 50], ["Clinical pilates", "Small groups of four, guided by a physio.", 55, 22]];
+  const PH = [["Laia Soler", "Back and neck pain", "#1f7a8c"], ["Marc Ribas", "Sports injuries", "#0f4c5c"], ["Núria Pons", "Pilates and pregnancy", "#c96a3a"]];
+  document.getElementById("treat").innerHTML = T.map(([n, d, m, p]) => `<div class="card"><b>${n}</b>${d}<div class="meta">${m} min · €${p}</div></div>`).join("");
+  document.getElementById("teamlist").innerHTML = PH.map(([n, s, c]) => `<div class="card member"><div class="av" style="background:${c}">${n.split(" ").map((x) => x[0]).join("")}</div><div><b>${n}</b><br><span>${s}</span></div></div>`).join("");
+  const st = { t: 0, p: 0, d: null, h: null };
+  const days = []; const now = new Date();
+  for (let i = 1; days.length < 7; i++) { const d = new Date(now); d.setDate(now.getDate() + i); if (d.getDay() !== 0) days.push(d); }
+  st.d = 0;
+  const hours = ["09:00", "10:00", "11:00", "12:00", "16:00", "17:00", "18:00", "19:00"];
+  const taken = (d, p, i) => ((d.getDate() * 3 + p * 5 + i * 7) % 4) === 0;
+  const chip = (label, on, attrs = "") => `<button type="button" aria-pressed="${on}" ${attrs}>${label}</button>`;
+  function render() {
+    document.getElementById("b-treat").innerHTML = T.map((t, i) => chip(t[0], i === st.t, `data-t="${i}"`)).join("");
+    document.getElementById("b-phys").innerHTML = PH.map((p, i) => chip(p[0], i === st.p, `data-p="${i}"`)).join("");
+    document.getElementById("b-day").innerHTML = days.map((d, i) => chip(`${d.toLocaleDateString("en-GB", { weekday: "short" })}<small>${d.getDate()} ${d.toLocaleDateString("en-GB", { month: "short" })}</small>`, i === st.d, `data-d="${i}"`)).join("");
+    const d = days[st.d];
+    const hs = d.getDay() === 6 ? hours.slice(0, 4) : hours;
+    document.getElementById("b-time").innerHTML = hs.map((h, i) => chip(h, h === st.h, `data-h="${h}" ${taken(d, st.p, i) ? "disabled title=\"Taken\"" : ""}`)).join("");
+    const t = T[st.t];
+    document.getElementById("b-sum").innerHTML = st.h ? `<b>${t[0]}</b> with ${PH[st.p][0]} · ${d.toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long" })} at ${st.h} · ${t[2]} min · €${t[3]}` : "Pick a time to see your appointment here.";
+    const nxt = []; days.slice(0, 3).forEach((dd) => PH.forEach((p, pi) => { const i = hours.findIndex((h, k) => !taken(dd, pi, k)); if (i >= 0 && nxt.length < 4) nxt.push(`<span class="pill">${dd.toLocaleDateString("en-GB", { weekday: "short", day: "numeric" })} ${hours[i]} · ${p[0].split(" ")[0]}</span>`); }));
+    document.getElementById("next").innerHTML = nxt.join("");
+  }
+  document.querySelector(".bgrid").addEventListener("click", (e) => {
+    const b = e.target.closest("button[aria-pressed]"); if (!b || b.disabled) return;
+    if (b.dataset.t) { st.t = +b.dataset.t; } if (b.dataset.p) { st.p = +b.dataset.p; st.h = null; } if (b.dataset.d) { st.d = +b.dataset.d; st.h = null; } if (b.dataset.h) st.h = b.dataset.h;
+    render();
+  });
+  document.getElementById("b-form").addEventListener("submit", (e) => {
+    e.preventDefault(); const m = document.getElementById("b-msg"), n = document.getElementById("b-name").value.trim(), ph = document.getElementById("b-phone").value.trim();
+    if (!st.h || !n || ph.replace(/\D/g, "").length < 9) { m.className = "err"; m.textContent = "Please pick a time and add your name and mobile number."; return; }
+    m.className = "ok"; m.textContent = `Booked, ${n}! In the real system the slot is blocked in ${PH[st.p][0].split(" ")[0]}’s agenda, and a confirmation and a reminder the day before go to ${ph}. (Demo: nothing was sent.)`;
+  });
+  render();
+})();
+</script>
+</body>
+</html>

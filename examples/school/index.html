@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Escola Turó Verd · Infant and primary school</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&display=swap" rel="stylesheet">
+<style>
+/* Demo school site: chalkboard green, crayon yellow and coral; admissions in three steps, events calendar, parent portal. */
+:root { --board: #24453b; --leaf: #3d7a5f; --sun: #f6c445; --coral: #ef6f5e; --paper: #ffffff; --soft: #f3f6f2; --ink: #1f2a26; --muted: #5b6a64; --line: #dfe6e1;
+  --display: "Baloo 2", system-ui, sans-serif; --body: "Nunito Sans", system-ui, sans-serif; color-scheme: light; }
+* { box-sizing: border-box; } html, body { margin: 0; } body { background: var(--paper); color: var(--ink); font: 16px/1.6 var(--body); }
+a { color: inherit; } :focus-visible { outline: 3px solid var(--sun); outline-offset: 2px; }
+.demo-bar { background: #12161d; color: #eef1f4; font: 13px/1.4 system-ui, sans-serif; padding: 8px 16px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.demo-bar a { color: #3fae8c; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 36px); }
+nav { display: flex; justify-content: space-between; align-items: center; height: 70px; gap: 12px; }
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; font: 800 24px var(--display); color: var(--board); }
+.logo i { width: 38px; height: 38px; border-radius: 50%; background: radial-gradient(circle at 50% 70%, var(--leaf) 0 45%, transparent 46%), radial-gradient(circle at 50% 30%, var(--sun) 0 22%, transparent 23%), var(--soft); border: 3px solid var(--board); }
+nav ul { list-style: none; display: flex; gap: 18px; margin: 0; padding: 0; font-weight: 600; align-items: center; }
+nav ul a { text-decoration: none; }
+@media (max-width: 640px) { nav ul li:not(:last-child) { display: none; } }
+.btn { display: inline-block; font: 700 15px var(--body); padding: 11px 18px; border-radius: 12px; text-decoration: none; border: 0; background: var(--coral); color: #fff; cursor: pointer; box-shadow: 0 3px 0 #c4503f; }
+.btn.alt { background: var(--sun); color: var(--board); box-shadow: 0 3px 0 #c99a1f; }
+.hero { background: var(--board); color: #fff; border-radius: 28px; margin: 6px clamp(8px, 2vw, 24px) 0; padding: clamp(36px, 6vw, 72px) 0; position: relative; overflow: hidden; }
+.hero::after { content: ""; position: absolute; right: -60px; bottom: -80px; width: 340px; height: 340px; border-radius: 50%; border: 36px solid var(--sun); opacity: .9; }
+.hero h1 { font: 800 clamp(44px, 7vw, 84px)/1 var(--display); margin: 0 0 16px; max-width: 13ch; position: relative; z-index: 1; }
+.hero h1 span { color: var(--sun); }
+.hero p { max-width: 50ch; font-size: 18px; opacity: .9; margin: 0 0 26px; position: relative; z-index: 1; }
+.hero .btns { display: flex; gap: 12px; flex-wrap: wrap; position: relative; z-index: 1; }
+section { padding: 64px 0; }
+h2 { font: 800 clamp(32px, 4.5vw, 46px)/1.05 var(--display); margin: 0 0 12px; color: var(--board); }
+.lead { color: var(--muted); max-width: 62ch; margin: 0 0 28px; }
+.stages { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 820px) { .stages { grid-template-columns: 1fr; } }
+.stage { border-radius: 20px; padding: 22px; background: var(--soft); border: 2px solid var(--line); }
+.stage b { font: 800 26px var(--display); display: block; color: var(--board); }
+.stage .age { display: inline-block; font-weight: 700; font-size: 13px; background: var(--sun); color: var(--board); padding: 3px 10px; border-radius: 999px; margin-bottom: 8px; }
+.stage:nth-child(2) .age { background: var(--coral); color: #fff; } .stage:nth-child(3) .age { background: var(--leaf); color: #fff; }
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+@media (max-width: 860px) { .split { grid-template-columns: 1fr; } }
+.events { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.events li { display: grid; grid-template-columns: 64px 1fr; gap: 14px; align-items: center; background: #fff; border: 2px solid var(--line); border-radius: 14px; padding: 10px 14px; }
+.events .d { text-align: center; background: var(--board); color: #fff; border-radius: 10px; padding: 6px 0; font: 800 22px/1 var(--display); }
+.events .d small { display: block; font: 700 11px var(--body); text-transform: uppercase; opacity: .8; margin-top: 2px; }
+.events b { display: block; } .events span { color: var(--muted); font-size: 14px; }
+.portal { background: var(--soft); border-radius: 20px; padding: 22px; border: 2px dashed var(--leaf); }
+.portal ul { padding-left: 18px; margin: 8px 0 16px; }
+.admit { background: var(--soft); }
+.steps { display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; }
+.steps span { font-weight: 700; font-size: 14px; padding: 6px 12px; border-radius: 999px; background: #fff; border: 2px solid var(--line); color: var(--muted); }
+.steps span.on { background: var(--board); border-color: var(--board); color: #fff; }
+form { background: #fff; border-radius: 20px; padding: 24px; border: 2px solid var(--line); max-width: 640px; display: grid; gap: 14px; }
+label { display: grid; gap: 6px; font-weight: 700; font-size: 14px; }
+input, select { font: 16px var(--body); padding: 11px 12px; border: 2px solid var(--line); border-radius: 10px; color: var(--ink); background: #fff; width: 100%; }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 520px) { .row { grid-template-columns: 1fr; } }
+.result { background: #fff7dc; border: 2px solid var(--sun); border-radius: 14px; padding: 14px 16px; }
+.err { color: #b3261e; font-weight: 600; font-size: 14px; }
+footer { background: var(--board); color: rgba(255,255,255,.85); padding: 28px 0; font-size: 14px; margin-top: 0; }
+footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+<div class="demo-bar"><span>Demo website by Backcourt. Escola Turó Verd is a fictional school.</span><a href="../../index.html#examples">← Back to Backcourt</a></div>
+<div class="wrap"><nav aria-label="Main"><a class="logo" href="#top"><i aria-hidden="true"></i>Turó Verd</a>
+  <ul><li><a href="#stages">Our school</a></li><li><a href="#calendar">Calendar</a></li><li><a href="#families">Families</a></li><li><a class="btn" href="#admissions">Apply</a></li></ul></nav></div>
+
+<div class="hero" id="top"><div class="wrap">
+  <h1>A school where children <span>learn outside</span> too.</h1>
+  <p>Infant and primary school for children aged 3 to 12, with a vegetable garden, a forest classroom and small groups of 20.</p>
+  <div class="btns"><a class="btn alt" href="#admissions">Start an application</a><a class="btn" href="#calendar">Come to an open day</a></div>
+</div></div>
+
+<section id="stages"><div class="wrap">
+  <h2>Every stage, one community</h2><p class="lead">Children stay with the same tutor for two years, so every family has one person who knows their child well.</p>
+  <div class="stages">
+    <div class="stage"><span class="age">Ages 3–6</span><b>Infant</b>Learning through play, the garden and lots of stories. Bilingual Catalan and English.</div>
+    <div class="stage"><span class="age">Ages 6–9</span><b>Lower primary</b>Reading, maths and science projects built around the seasons.</div>
+    <div class="stage"><span class="age">Ages 9–12</span><b>Upper primary</b>Bigger projects, coding, a school newspaper and the year-6 trip.</div>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap split">
+  <div id="calendar"><h2>Coming up</h2><p class="lead">The calendar updates itself from the school office’s planning sheet.</p><ul class="events" id="events"></ul></div>
+  <div id="families"><h2>For families</h2>
+    <div class="portal"><b>Family portal</b>
+      <ul><li>Today’s lunch menu and allergy notes</li><li>Sign permission slips for trips in one click</li><li>Messages from your child’s tutor</li><li>Pay for lunch, activities and the summer camp</li></ul>
+      <button class="btn" type="button" id="portal-btn">Sign in to the portal</button>
+      <p id="portal-msg" role="status" style="margin:10px 0 0;color:var(--muted);font-size:14px"></p></div>
+  </div>
+</div></section>
+
+<section class="admit" id="admissions"><div class="wrap">
+  <h2>Apply for a place</h2><p class="lead">Three short steps. We confirm by email and invite you to visit with your child.</p>
+  <div class="steps" id="steps"><span class="on">1 · Your child</span><span>2 · Your details</span><span>3 · Done</span></div>
+  <form id="adm" novalidate></form>
+</div></section>
+
+<footer><div class="wrap"><span>Escola Turó Verd · Barcelona</span><span>Website, calendar and admissions by Backcourt</span></div></footer>
+
+<script>
+(function () {
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const today = new Date();
+  const ev = [[3, "Open day", "Visit classrooms and the garden, 10:00–12:00"], [9, "Family garden morning", "Planting with infant classes"], [16, "Winter concert", "Upper primary choir and band"], [24, "Open day", "For families applying for next year"], [31, "Science fair", "Projects by lower primary"]];
+  document.getElementById("events").innerHTML = ev.map(([d, t, s]) => { const x = new Date(today); x.setDate(x.getDate() + d); return `<li><div class="d">${x.getDate()}<small>${months[x.getMonth()]}</small></div><div><b>${t}</b><span>${s}</span></div></li>`; }).join("");
+  document.getElementById("portal-btn").onclick = () => { document.getElementById("portal-msg").textContent = "In the real site, each family signs in with its own account. This demo has no portal behind it."; };
+
+  const form = document.getElementById("adm"), steps = document.getElementById("steps").children;
+  const data = {};
+  const year = today.getMonth() >= 8 ? today.getFullYear() + 1 : today.getFullYear();
+  function stageFor(birth) {
+    const age = year - new Date(birth).getFullYear(); // age reached during the start year
+    if (age < 3) return null; if (age <= 5) return ["Infant", age]; if (age <= 8) return ["Lower primary", age]; if (age <= 11) return ["Upper primary", age]; return null;
+  }
+  function step(n) {
+    [...steps].forEach((s, i) => s.classList.toggle("on", i === n - 1));
+    if (n === 1) form.innerHTML = `
+      <div class="row"><label for="c-name">Child’s first name<input id="c-name" value="${data.child || ""}"></label>
+      <label for="c-birth">Date of birth<input id="c-birth" type="date" value="${data.birth || ""}"></label></div>
+      <label for="c-lang">Languages spoken at home<select id="c-lang"><option>Catalan</option><option>Spanish</option><option>English</option><option>Other</option></select></label>
+      <div id="c-msg" role="status"></div><button class="btn" type="submit" style="justify-self:start">Next</button>`;
+    if (n === 2) form.innerHTML = `
+      <div class="result">${data.child} would join <b>${data.stage[0]}</b> in September ${year} (turning ${data.stage[1]} that year).</div>
+      <div class="row"><label for="p-name">Your name<input id="p-name" autocomplete="name"></label><label for="p-email">Email<input id="p-email" type="email" autocomplete="email"></label></div>
+      <label for="p-visit">Preferred open day<select id="p-visit">${ev.filter((e) => e[1] === "Open day").map(([d]) => { const x = new Date(today); x.setDate(x.getDate() + d); return `<option>${x.toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long" })}</option>`; }).join("")}</select></label>
+      <div id="c-msg" role="status"></div><div style="display:flex;gap:10px"><button class="btn alt" type="button" id="back">Back</button><button class="btn" type="submit">Send application</button></div>`;
+    if (n === 3) form.innerHTML = `<div class="result"><b>Application received.</b><br>Thank you, ${data.parent}. ${data.child}’s application for ${data.stage[0]} is registered, and you’re booked for the open day on ${data.visit}. In the real system, a confirmation email goes to ${data.email} and the school office sees it on its dashboard. (Demo: nothing was sent.)</div><button class="btn alt" type="button" id="again" style="justify-self:start">Start another</button>`;
+    form.dataset.step = n;
+    const back = document.getElementById("back"); if (back) back.onclick = () => step(1);
+    const again = document.getElementById("again"); if (again) again.onclick = () => { for (const k in data) delete data[k]; step(1); };
+  }
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const n = +form.dataset.step, msg = document.getElementById("c-msg");
+    if (n === 1) {
+      data.child = document.getElementById("c-name").value.trim(); data.birth = document.getElementById("c-birth").value;
+      const st = data.birth && stageFor(data.birth);
+      if (!data.child || !data.birth) { msg.className = "err"; msg.textContent = "Please add your child’s name and date of birth."; return; }
+      if (!st) { msg.className = "err"; msg.textContent = "Our school takes children aged 3 to 11 at the start of the year. Please check the date of birth."; return; }
+      data.stage = st; step(2);
+    } else if (n === 2) {
+      data.parent = document.getElementById("p-name").value.trim(); data.email = document.getElementById("p-email").value.trim(); data.visit = document.getElementById("p-visit").value;
+      if (!data.parent || !/\S+@\S+\.\S+/.test(data.email)) { msg.className = "err"; msg.textContent = "Please add your name and a valid email."; return; }
+      step(3);
+    }
+  });
+  step(1);
+})();
+</script>
+</body>
+</html>

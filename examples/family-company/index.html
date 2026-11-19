@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Germans Vidal · Olive oil since 1952</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* Demo family-company site: label-like serif, warm black, olive and gold; family timeline and an order form with live totals. */
+:root { --black: #231f1a; --olive: #5f6d24; --gold: #c9a227; --paper: #f6f1e7; --card: #fffdf8; --muted: #6b6457; --line: #e2d9c6;
+  --display: "Bodoni Moda", Didot, Georgia, serif; --body: "Karla", system-ui, sans-serif; color-scheme: light; }
+* { box-sizing: border-box; } html, body { margin: 0; } body { background: var(--paper); color: var(--black); font: 17px/1.6 var(--body); }
+a { color: inherit; } :focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.demo-bar { background: #12161d; color: #eef1f4; font: 13px/1.4 system-ui, sans-serif; padding: 8px 16px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.demo-bar a { color: #3fae8c; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 36px); }
+nav { display: flex; justify-content: space-between; align-items: center; height: 72px; gap: 12px; }
+.logo { text-decoration: none; display: grid; line-height: 1; }
+.logo b { font: 700 24px var(--display); letter-spacing: .04em; text-transform: uppercase; }
+.logo span { font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: var(--olive); margin-top: 4px; }
+nav ul { list-style: none; display: flex; gap: 22px; margin: 0; padding: 0; align-items: center; font-weight: 500; }
+nav ul a { text-decoration: none; }
+@media (max-width: 640px) { nav ul li:not(:last-child) { display: none; } }
+.btn { display: inline-block; font: 700 15px var(--body); letter-spacing: .04em; padding: 12px 20px; border: 2px solid var(--black); background: var(--black); color: var(--paper); text-decoration: none; cursor: pointer; }
+.btn.ghost { background: transparent; color: var(--black); }
+.hero { background: var(--black); color: var(--paper); }
+.hero .wrap { display: grid; grid-template-columns: 1.2fr .8fr; gap: 40px; align-items: center; padding-top: clamp(40px, 7vw, 90px); padding-bottom: clamp(40px, 7vw, 90px); }
+@media (max-width: 860px) { .hero .wrap { grid-template-columns: 1fr; } }
+.since { font-size: 13px; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); }
+.hero h1 { font: 500 clamp(44px, 7vw, 86px)/1 var(--display); margin: 14px 0 20px; text-wrap: balance; }
+.hero h1 i { color: var(--gold); }
+.hero p { max-width: 48ch; opacity: .85; margin: 0 0 26px; }
+.hero .btn { background: var(--gold); border-color: var(--gold); color: var(--black); }
+.hero .btn.ghost { background: transparent; color: var(--paper); border-color: rgba(246,241,231,.4); }
+.bottle { justify-self: center; width: min(260px, 70%); aspect-ratio: 1 / 2.1; position: relative; }
+.bottle::before { content: ""; position: absolute; left: 36%; right: 36%; top: 0; height: 18%; background: var(--olive); border-radius: 6px 6px 0 0; }
+.bottle::after { content: ""; position: absolute; left: 6%; right: 6%; top: 16%; bottom: 0; background: linear-gradient(180deg, #7d8c34, #4b5619); border-radius: 40% 40% 12px 12px / 18% 18% 12px 12px; }
+.label { position: absolute; z-index: 1; left: 14%; right: 14%; top: 46%; background: var(--paper); color: var(--black); text-align: center; padding: 14px 8px; border: 1px solid var(--gold); }
+.label b { display: block; font: 700 18px var(--display); text-transform: uppercase; letter-spacing: .06em; }
+.label small { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--olive); }
+section { padding: 70px 0; }
+h2 { font: 500 clamp(34px, 4.5vw, 54px)/1.05 var(--display); margin: 0 0 14px; }
+.lead { color: var(--muted); max-width: 60ch; margin: 0 0 30px; }
+.timeline { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--black); }
+@media (max-width: 820px) { .timeline { grid-template-columns: 1fr 1fr; } }
+.timeline div { padding: 18px 18px 0 0; position: relative; }
+.timeline div::before { content: ""; position: absolute; top: -6px; left: 0; width: 11px; height: 11px; border-radius: 50%; background: var(--gold); }
+.timeline b { font: 700 34px var(--display); display: block; color: var(--olive); }
+.products { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+@media (max-width: 860px) { .products { grid-template-columns: 1fr; } }
+.prod { background: var(--card); border: 1px solid var(--line); padding: 22px; display: grid; gap: 10px; }
+.prod h3 { font: 700 26px var(--display); margin: 0; }
+.prod .notes { color: var(--muted); font-size: 15px; margin: 0; }
+.sizes { display: grid; gap: 8px; margin-top: 4px; }
+.size { display: grid; grid-template-columns: 1fr auto auto; gap: 10px; align-items: center; border-top: 1px dashed var(--line); padding-top: 8px; font-variant-numeric: tabular-nums; }
+.step { display: inline-flex; border: 1px solid var(--line); }
+.step button { width: 32px; height: 32px; border: 0; background: var(--paper); font: 700 18px var(--body); cursor: pointer; color: var(--black); }
+.step output { width: 34px; display: grid; place-items: center; font-weight: 700; }
+.cart { position: sticky; bottom: 0; background: var(--black); color: var(--paper); padding: 14px 0; z-index: 5; }
+.cart .wrap { display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; }
+.cart b { font-variant-numeric: tabular-nums; }
+.cart .btn { background: var(--gold); border-color: var(--gold); color: var(--black); }
+.ship { font-size: 14px; opacity: .8; }
+.meter { height: 6px; width: 180px; background: rgba(255,255,255,.2); display: inline-block; vertical-align: middle; margin-left: 8px; }
+.meter i { display: block; height: 100%; background: var(--gold); }
+.trade { background: var(--card); border-top: 1px solid var(--line); }
+.tgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+@media (max-width: 860px) { .tgrid { grid-template-columns: 1fr; } }
+dialog { border: 0; padding: 0; max-width: 520px; width: calc(100% - 32px); background: var(--card); color: var(--black); }
+dialog::backdrop { background: rgba(35,31,26,.6); }
+.dlg { padding: 24px; display: grid; gap: 12px; }
+.dlg h3 { font: 700 28px var(--display); margin: 0; }
+.dlg ul { margin: 0; padding-left: 18px; }
+label { display: grid; gap: 6px; font-weight: 700; font-size: 14px; }
+input { font: 16px var(--body); padding: 10px 12px; border: 1px solid var(--line); background: #fff; width: 100%; color: var(--black); }
+.ok { background: #eef1dd; border-left: 4px solid var(--olive); padding: 12px 14px; }
+.err { color: #9b2c1d; font-weight: 700; font-size: 14px; }
+footer { padding: 30px 0 90px; font-size: 14px; color: var(--muted); }
+footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+<div class="demo-bar"><span>Demo website by Backcourt. Germans Vidal is a fictional family business.</span><a href="../../index.html#examples">← Back to Backcourt</a></div>
+<div class="wrap"><nav aria-label="Main"><a class="logo" href="#top"><b>Germans Vidal</b><span>Olive oil · since 1952</span></a>
+  <ul><li><a href="#family">Our family</a></li><li><a href="#shop">Shop</a></li><li><a href="#trade">Restaurants &amp; shops</a></li><li><a class="btn" href="#shop" style="padding:8px 14px">Order</a></li></ul></nav></div>
+
+<div class="hero" id="top"><div class="wrap">
+  <div><div class="since">Les Garrigues · since 1952</div>
+    <h1>Three generations, <i>one</i> olive grove.</h1>
+    <p>We grow, press and bottle our own Arbequina olives. Order straight from the family, and we’ll ship it the same week.</p>
+    <a class="btn" href="#shop">Shop our oils</a> <a class="btn ghost" href="#family">Meet the family</a></div>
+  <div class="bottle" aria-hidden="true"><div class="label"><b>Vidal</b><small>Extra virgin · Arbequina</small></div></div>
+</div></div>
+
+<section id="family"><div class="wrap">
+  <h2>From grandfather’s press to your table</h2><p class="lead">The grove has stayed in the family for three generations. What changed is how you can reach us.</p>
+  <div class="timeline">
+    <div><b>1952</b>Josep Vidal buys a small grove and a stone press with his brother.</div>
+    <div><b>1978</b>The second generation builds the cooperative mill in the village.</div>
+    <div><b>2004</b>First organic certification and first export to France.</div>
+    <div><b>Today</b>Anna and Pau run the farm, and sell direct to homes and restaurants.</div>
+  </div>
+</div></section>
+
+<section id="shop" style="padding-top:0"><div class="wrap">
+  <h2>Shop</h2><p class="lead">Free delivery in Spain on orders over €60. Harvest of this season, bottled to order.</p>
+  <div class="products" id="products"></div>
+</div></section>
+
+<section class="trade" id="trade"><div class="wrap tgrid">
+  <div><h2>For restaurants and shops</h2><p class="lead">Trade prices from 12 litres, a fixed monthly delivery and invoices sent automatically at the end of each month.</p></div>
+  <form id="trade-form" novalidate style="display:grid;gap:12px">
+    <label for="t-biz">Business name<input id="t-biz"></label>
+    <label for="t-email">Email<input id="t-email" type="email" autocomplete="email"></label>
+    <label for="t-litres">Litres per month (approx.)<input id="t-litres" type="number" min="12" step="1" inputmode="numeric"></label>
+    <button class="btn" type="submit" style="justify-self:start">Ask for trade prices</button>
+    <div id="t-msg" role="status"></div>
+  </form>
+</div></section>
+
+<div class="cart" aria-live="polite"><div class="wrap">
+  <span><b id="c-items">0 items</b> · <b id="c-total">€0.00</b></span>
+  <span class="ship" id="c-ship"></span>
+  <button class="btn" type="button" id="c-go">Review order</button>
+</div></div>
+
+<dialog id="dlg"><form class="dlg" method="dialog" id="checkout" novalidate>
+  <h3>Your order</h3><ul id="d-lines"></ul><b id="d-total"></b>
+  <label for="o-name">Name<input id="o-name" autocomplete="name"></label>
+  <label for="o-email">Email<input id="o-email" type="email" autocomplete="email"></label>
+  <div id="o-msg" role="status"></div>
+  <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn" type="submit" value="confirm">Confirm order</button><button class="btn ghost" type="button" id="d-close">Keep shopping</button></div>
+</form></dialog>
+
+<footer><div class="wrap"><span>Germans Vidal · Les Garrigues, Catalonia</span><span>Website and online shop by Backcourt</span></div></footer>
+
+<script>
+(function () {
+  const P = [
+    ["Arbequina Extra Virgin", "Fresh and fruity, with green apple and almond. Our everyday oil.", [["500 ml", 9.5], ["2 L", 29], ["5 L", 62]]],
+    ["Early Harvest", "Picked green in October. Peppery and intense. Limited bottles.", [["250 ml", 8], ["500 ml", 14.5]]],
+    ["Organic Family Reserve", "From the oldest trees in the grove, planted by our grandfather.", [["500 ml", 12], ["2 L", 38]]],
+  ];
+  const qty = {};
+  const eur = (v) => "€" + v.toFixed(2);
+  document.getElementById("products").innerHTML = P.map(([n, d, sizes], i) => `<article class="prod"><h3>${n}</h3><p class="notes">${d}</p><div class="sizes">${sizes.map(([s, p], j) => `<div class="size"><span>${s}</span><b>${eur(p)}</b><span class="step"><button type="button" data-k="${i}-${j}" data-d="-1" aria-label="Remove one ${n} ${s}">−</button><output id="q-${i}-${j}">0</output><button type="button" data-k="${i}-${j}" data-d="1" aria-label="Add one ${n} ${s}">+</button></span></div>`).join("")}</div></article>`).join("");
+  function lines() { return Object.entries(qty).filter(([, q]) => q > 0).map(([k, q]) => { const [i, j] = k.split("-").map(Number); return { name: `${P[i][0]} ${P[i][2][j][0]}`, q, price: P[i][2][j][1] }; }); }
+  function render() {
+    const L = lines(), items = L.reduce((s, l) => s + l.q, 0), total = L.reduce((s, l) => s + l.q * l.price, 0);
+    document.getElementById("c-items").textContent = `${items} item${items === 1 ? "" : "s"}`;
+    document.getElementById("c-total").textContent = eur(total);
+    const left = 60 - total;
+    document.getElementById("c-ship").innerHTML = total === 0 ? "Add a bottle to start" : left > 0 ? `${eur(left)} more for free delivery <span class="meter"><i style="width:${Math.min(100, total / 60 * 100)}%"></i></span>` : "Free delivery in Spain included";
+  }
+  document.getElementById("products").onclick = (e) => { const b = e.target.closest("button[data-k]"); if (!b) return; const k = b.dataset.k; qty[k] = Math.max(0, (qty[k] || 0) + +b.dataset.d); document.getElementById("q-" + k).textContent = qty[k]; render(); };
+  const dlg = document.getElementById("dlg");
+  document.getElementById("c-go").onclick = () => {
+    const L = lines(); if (!L.length) { document.getElementById("c-ship").textContent = "Your basket is empty. Add a bottle first."; return; }
+    const total = L.reduce((s, l) => s + l.q * l.price, 0), ship = total >= 60 ? 0 : 6.9;
+    document.getElementById("d-lines").innerHTML = L.map((l) => `<li>${l.q} × ${l.name} · ${eur(l.q * l.price)}</li>`).join("") + `<li>Delivery · ${ship ? eur(ship) : "free"}</li>`;
+    document.getElementById("d-total").textContent = `Total ${eur(total + ship)}`; document.getElementById("o-msg").textContent = "";
+    dlg.showModal();
+  };
+  document.getElementById("d-close").onclick = () => dlg.close();
+  document.getElementById("checkout").addEventListener("submit", (e) => {
+    e.preventDefault(); const m = document.getElementById("o-msg"), n = document.getElementById("o-name").value.trim(), em = document.getElementById("o-email").value.trim();
+    if (!n || !/\S+@\S+\.\S+/.test(em)) { m.className = "err"; m.textContent = "Please add your name and email."; return; }
+    m.className = "ok"; m.textContent = `Thank you, ${n}. In the real shop you’d pay by card or Bizum here, the family gets the order on their phone, and ${em} receives the invoice and tracking. (Demo: nothing was charged.)`;
+  });
+  document.getElementById("trade-form").addEventListener("submit", (e) => {
+    e.preventDefault(); const m = document.getElementById("t-msg"), b = document.getElementById("t-biz").value.trim(), em = document.getElementById("t-email").value.trim(), l = +document.getElementById("t-litres").value;
+    if (!b || !/\S+@\S+\.\S+/.test(em) || !(l >= 12)) { m.className = "err"; m.textContent = "Please add your business, email and at least 12 litres a month."; return; }
+    m.className = "ok"; m.textContent = `Thanks, ${b}. Anna would receive your request for about ${l} L a month and send trade prices to ${em}. (Demo: nothing was sent.)`;
+  });
+  render();
+})();
+</script>
+</body>
+</html>
